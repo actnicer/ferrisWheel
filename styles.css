@@ -1,0 +1,126 @@
+.wheel {
+    border: 2px solid black;
+    border-radius: 50%;
+    margin-left: 50px;
+    position: absolute;
+    height: 55vw;
+    width: 55vw;
+    max-height: 500px;
+    max-width: 500px;
+    /* link to @keyframes */
+    animation-name: wheel;
+    /* select the duration of the animation in secs */
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    /* how the animation will progress over time */
+    animation-timing-function: linear;
+}
+
+.line {
+    background-color: black;
+    width: 50%;
+    height: 2px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    /* offset the origin point by 0% from the left and 0% from the top, 
+    setting it to the top left corner of the element */
+    transform-origin: 0% 0%;
+}
+
+/* select second .line element */
+.line:nth-of-type(2) {
+    /* transforms the shape of an element */
+    transform: rotate(60deg);
+}
+
+.line:nth-of-type(3) {
+    transform: rotate(120deg);
+}
+
+.line:nth-of-type(4) {
+    transform: rotate(180deg);
+}
+
+.line:nth-of-type(5) {
+    transform: rotate(240deg);
+}
+
+.line:nth-of-type(6) {
+    transform: rotate(300deg);
+}
+
+.cabin {
+    background-color: red;
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    border: 2px solid;
+
+    /* set the origin point to be offset 50% from the left and 0% from the top, 
+    placing it in the middle of the top edge of the element */
+    transform-origin: 50% 0%;
+
+    /* sets the animation-name, duration. timing-function && iteration count in that order */
+    /* ease-in-out  tell the animation to start and end at a slower pace, 
+    but move more quickly in the middle of the cycle*/
+    animation: cabins 10s ease-in-out infinite;
+}
+
+/* select first .cabin class div */
+.cabin:nth-of-type(1) {
+    right: -8.5%;
+    top: 50%;
+}
+.cabin:nth-of-type(2) {
+  right: 17%;
+  top: 93.5%;
+}
+.cabin:nth-of-type(3) {
+  right: 67%;
+  top: 93.5%;
+}
+.cabin:nth-of-type(4) {
+  left: -8.5%;
+  top: 50%;
+}
+.cabin:nth-of-type(5) {
+  left: 17%;
+  top: 7%;
+}
+.cabin:nth-of-type(6) {
+  right: 17%;
+  top: 7%;
+}
+
+/* keyframe named "wheel"
+used to define flow of animation */
+@keyframes wheel {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
+/* background color at intervals allows color to change unjerkily */
+@keyframes cabins {
+    0% {
+      transform: rotate(0deg);
+      background-color: yellow;
+    }
+    25% {
+      background-color: yellow;
+    }
+    50% {
+      background-color: purple;
+    }
+    75% {
+      background-color: yellow;
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+}
